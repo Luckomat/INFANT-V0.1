@@ -799,7 +799,8 @@
         }
 
         footer {
-            padding-block: 54px 30px;
+            position: relative;
+            padding-block: 64px 32px;
         }
 
         .footer-main {
@@ -998,6 +999,20 @@ dialog {
 
             .announcement {
                 font-size: 0.75rem;
+            }
+
+            /* Elefante mobile:
+               usa svh para não "pular" quando a barra do navegador aparece/some.
+               O left negativo deixa aproximadamente metade do desenho fora da tela. */
+            .background-elephant {
+                top: 50svh;
+                left: -68vw;
+
+                width: 136vw;
+                max-width: none;
+
+                transform: translateY(-50%);
+                opacity: 0.16;
             }
 
             .header {
@@ -1287,23 +1302,45 @@ dialog {
                 margin-top: 25px;
             }
 
+            footer {
+                padding-top: 58px;
+                padding-bottom: 90px;
+                text-align: center;
+            }
+
             .footer-main {
-                flex-wrap: wrap;
-                align-items: start;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 18px;
+                padding-bottom: 32px;
+            }
+
+            .footer-main .wordmark img {
+                width: 104px;
             }
 
             .footer-main p {
-                max-width: 190px;
-                font-size: 0.875rem;
+                max-width: 280px;
+                font-size: 0.9375rem;
+                line-height: 1.55;
+            }
+
+            .footer-main .text-link {
+                justify-content: center;
+                min-height: 44px;
+                padding: 8px 14px;
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.82);
             }
 
             .footer-bottom {
+                align-items: center;
                 flex-direction: column;
-                gap: 12px;
-            }
-
-            footer {
-                padding-bottom: 86px;
+                gap: 10px;
+                padding-top: 22px;
+                text-align: center;
             }
 
             .floating-whatsapp {
@@ -1351,15 +1388,21 @@ dialog {
         .wordmark img {
             width: 76px;
             height: auto;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(185, 31, 43, 0.10);
         }
 
         .footer-main .wordmark img {
             width: 110px;
+            border: 6px solid var(--soft);
+            box-shadow: 0 12px 30px rgba(185, 31, 43, 0.12);
         }
 
         @media (max-width: 760px) {
-            .wordmark img {
-                width: 60px;
+            .header .wordmark img {
+                width: 64px;
             }
         }
     </style>
@@ -1838,7 +1881,6 @@ dialog {
                 <a href="https://lcom-it.com.br" target="_blank" rel="noopener noreferrer">LCOM ↗</a></span>
         </div>
     </footer>
-</div>
 
     <a class="floating-whatsapp"
         href="https://wa.me/5531984499029?text=Vim%20atrav%C3%A9s%20do%20site."
